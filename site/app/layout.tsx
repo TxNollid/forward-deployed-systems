@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Forward Deployed Systems",
   description:
-    "An open-source operating system for Forward Deployed Engineers shipping AI in enterprises. Domain knowledge, structured SDLC, and AI-native tooling.",
+    "An operating system for Forward Deployed Engineers shipping AI in enterprises. Domain knowledge, structured SDLC, and AI-native tooling.",
 };
 
 export default function RootLayout({
@@ -28,7 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#080808] text-neutral-100">
+        <Nav />
+        <div className="flex-1 pt-16">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }
