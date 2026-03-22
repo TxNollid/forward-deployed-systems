@@ -7,7 +7,6 @@ import FadeIn from "@/components/FadeIn";
 const ROTATING_WORDS = [
   "enterprises.",
   "utilities.",
-  "health systems.",
   "manufacturers.",
   "logistics.",
 ];
@@ -21,10 +20,7 @@ function DotGrid() {
 function ScanLine() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div
-        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent scan-line"
-        style={{ top: 0 }}
-      />
+      <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent scan-line" />
     </div>
   );
 }
@@ -42,23 +38,10 @@ function OODALoop() {
 
   return (
     <svg width="280" height="280" className="opacity-80">
-      {/* Orbit ring */}
-      <circle
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="none"
-        stroke="rgba(52,211,153,0.15)"
-        strokeWidth="1"
-        strokeDasharray="4 4"
-      />
-      {/* Animated orbit dot */}
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(52,211,153,0.15)" strokeWidth="1" strokeDasharray="4 4" />
       <circle r="4" fill="#34d399" opacity="0.8">
-        <animateMotion
-          dur="6s"
-          repeatCount="indefinite"
-          path={`M ${cx + r} ${cy} A ${r} ${r} 0 1 1 ${cx + r - 0.001} ${cy}`}
-        />
+        <animateMotion dur="6s" repeatCount="indefinite"
+          path={`M ${cx + r} ${cy} A ${r} ${r} 0 1 1 ${cx + r - 0.001} ${cy}`} />
       </circle>
       {nodes.map((node) => {
         const rad = (node.angle * Math.PI) / 180;
@@ -72,24 +55,14 @@ function OODALoop() {
               x={x}
               y={y + (node.angle === -90 ? -14 : node.angle === 90 ? 18 : 0)}
               dx={node.angle === 0 ? 14 : node.angle === 180 ? -14 : 0}
-              textAnchor={
-                node.angle === 0
-                  ? "start"
-                  : node.angle === 180
-                  ? "end"
-                  : "middle"
-              }
-              fill="#34d399"
-              fontSize="9"
-              fontFamily="monospace"
-              letterSpacing="1"
+              textAnchor={node.angle === 0 ? "start" : node.angle === 180 ? "end" : "middle"}
+              fill="#34d399" fontSize="9" fontFamily="monospace" letterSpacing="1"
             >
               {node.label}
             </text>
           </g>
         );
       })}
-      {/* Center */}
       <circle cx={cx} cy={cy} r="20" fill="none" stroke="rgba(52,211,153,0.1)" strokeWidth="1" />
       <text x={cx} y={cy + 4} textAnchor="middle" fill="rgba(52,211,153,0.5)" fontSize="7" fontFamily="monospace" letterSpacing="0.5">
         LOOP
@@ -106,14 +79,13 @@ function Typewriter() {
   useEffect(() => {
     const word = ROTATING_WORDS[idx];
     let timeout: ReturnType<typeof setTimeout>;
-
     if (!deleting && displayed.length < word.length) {
       timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 80);
     } else if (!deleting && displayed.length === word.length) {
       timeout = setTimeout(() => setDeleting(true), 2000);
     } else if (deleting && displayed.length > 0) {
       timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40);
-    } else if (deleting && displayed.length === 0) {
+    } else {
       setDeleting(false);
       setIdx((i) => (i + 1) % ROTATING_WORDS.length);
     }
@@ -133,48 +105,36 @@ function Hero() {
     <section className="relative min-h-[90vh] flex items-center px-6 overflow-hidden">
       <DotGrid />
       <ScanLine />
-      {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <div>
           <FadeIn delay={0}>
-            <p className="font-mono text-emerald-400 text-xs tracking-widest mb-5">
-              FORWARD DEPLOYED SYSTEMS
-            </p>
+            <p className="font-mono text-emerald-400 text-xs tracking-widest mb-5">OPEN SOURCE</p>
           </FadeIn>
           <FadeIn delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-              Ship AI into{" "}
+              Deploy AI into{" "}
               <br className="hidden sm:block" />
               <Typewriter />
             </h1>
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-neutral-400 text-lg leading-relaxed max-w-lg mb-8">
-              An open-source operating system for Forward Deployed Engineers.
-              Domain knowledge, structured SDLC, and AI-native tooling —
-              so your team executes from day one, not month three.
+              An open-source operating approach for scaling AI in enterprises.
+              Industry knowledge, structured SDLC, and AI-native tooling.
             </p>
           </FadeIn>
           <FadeIn delay={300}>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/services"
-                className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition"
-              >
+              <Link href="/services" className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition">
                 Request a Demo
               </Link>
-              <Link
-                href="/starter-kit"
-                className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 hover:text-emerald-400 transition"
-              >
+              <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 hover:text-emerald-400 transition">
                 Explore the Kit
               </Link>
             </div>
           </FadeIn>
         </div>
-
         <FadeIn delay={400} className="hidden lg:flex justify-center">
           <OODALoop />
         </FadeIn>
@@ -187,23 +147,23 @@ function Thesis() {
   const pillars = [
     {
       icon: "◈",
-      title: "Domain-First",
-      body: "Walk in with industry processes, roles, KPIs, systems, and regulations already loaded. Speak the client's language before the kickoff call.",
+      title: "Industry Context",
+      body: "Use base industry processes, roles, KPIs, and systems to create context-aware systems.",
     },
     {
       icon: "⟳",
-      title: "Structured SDLC",
-      body: "10 phases, each with explicit Input → Action → Output. Outputs chain into downstream inputs. Nothing assumed, everything traceable.",
+      title: "Adaptable AI Kernels",
+      body: "Process kernels specialized to various tasks with explicit Input → Action → Outputs and customizable integrations.",
     },
     {
       icon: "⌁",
-      title: "AI-Native",
-      body: "Built to be augmented by AI agents. Point Claude Code or Cursor at the repo and get a co-pilot that understands the full engagement context.",
+      title: "AI-Native Harness",
+      body: "Grow with your models. Use Claude, Codex, or open source AI with FDS to get the most of AI now.",
     },
     {
       icon: "↗",
-      title: "Compounding",
-      body: "Every engagement sharpens the framework. Skills, rules, and domain knowledge accumulate. The system gets smarter with each deployment.",
+      title: "A Mindset",
+      body: "FDS is a way of operating for your organization that maximizes small, dense teams to achieve new heights.",
     },
   ];
 
@@ -211,13 +171,9 @@ function Thesis() {
     <section className="py-24 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
-            THE THESIS
-          </p>
+          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">THE THESIS</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 max-w-2xl">
-            Enterprises are behind.
-            <br />
-            The gap is operational, not technical.
+            Build systems, not software.
           </h2>
           <p className="text-neutral-400 text-lg max-w-2xl mb-14 leading-relaxed">
             The hardest part of deploying AI in enterprises isn&apos;t the model —
@@ -225,7 +181,6 @@ function Thesis() {
             the regulations. FDS solves for that.
           </p>
         </FadeIn>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {pillars.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
@@ -256,23 +211,18 @@ function IOChain() {
     <section className="py-24 px-6 border-t border-white/5 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
-            HOW IT WORKS
-          </p>
+          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">HOW IT WORKS</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-14">
-            Input → Action → Output,
+            Input &rarr; Action &rarr; Output,
             <br />
-            at every level.
+            the AI kernel of processes.
           </h2>
         </FadeIn>
-
         <div className="relative">
-          {/* Connecting line */}
           <div className="absolute top-6 left-6 right-6 h-px bg-gradient-to-r from-emerald-400/20 via-emerald-400/40 to-emerald-400/20 hidden sm:block" />
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {steps.map((step, i) => (
-              <FadeIn key={step.label} delay={i * 80} direction="up">
+              <FadeIn key={step.label} delay={i * 80}>
                 <div className="relative flex flex-col items-center text-center">
                   <div className="w-12 h-12 rounded-full border border-emerald-400/30 bg-emerald-400/10 flex items-center justify-center font-mono text-emerald-400 text-sm mb-3 relative z-10">
                     {String(i + 1).padStart(2, "0")}
@@ -284,13 +234,9 @@ function IOChain() {
             ))}
           </div>
         </div>
-
         <FadeIn delay={500}>
           <div className="mt-12 text-center">
-            <Link
-              href="/starter-kit"
-              className="text-sm text-emerald-400 hover:text-emerald-300 transition font-mono"
-            >
+            <Link href="/starter-kit" className="text-sm text-emerald-400 hover:text-emerald-300 transition font-mono">
               Explore the full SDLC →
             </Link>
           </div>
@@ -308,28 +254,23 @@ function CTA() {
           <div className="relative rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-12 text-center overflow-hidden">
             <div className="absolute inset-0 dot-grid opacity-20 pointer-events-none" />
             <div className="relative z-10">
-              <p className="font-mono text-emerald-400 text-xs tracking-widest mb-4">
-                OPEN SOURCE + SERVICES
-              </p>
+              <p className="font-mono text-emerald-400 text-xs tracking-widest mb-4">OPEN SOURCE + SERVICES</p>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Start with the kit.
+                Use and contribute to the FDS tool kit.
                 <br />
                 Scale with us.
               </h2>
               <p className="text-neutral-400 text-lg max-w-lg mx-auto mb-8">
-                Clone the repo and use it free. Or bring us in to run the engagement.
+                Get in touch! We always want to see how teams are reorganizing with AI.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Link
-                  href="/solutions"
-                  className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition"
-                >
+                <Link href="/contact" className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition">
+                  Get in Touch
+                </Link>
+                <Link href="/solutions" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 transition">
                   See What We Build
                 </Link>
-                <Link
-                  href="/starter-kit"
-                  className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 transition"
-                >
+                <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 transition">
                   View the Starter Kit
                 </Link>
               </div>
