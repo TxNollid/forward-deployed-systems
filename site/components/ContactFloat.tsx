@@ -42,7 +42,7 @@ export default function ContactFloat() {
           <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
             <div>
               <p className="font-semibold text-sm">Say hello</p>
-              <p className="text-xs text-neutral-500 mt-0.5">We&apos;ll reply within 2 days</p>
+              <p className="text-xs text-neutral-500 mt-0.5">Human response, human time</p>
             </div>
             <button
               onClick={() => setOpen(false)}
