@@ -29,6 +29,15 @@ const solutions = [
   },
   {
     tag: "TOOLING",
+    title: "CIAC Calculator",
+    desc: "A 7-step web app that replaces spreadsheet-based CIAC estimating at Massachusetts utilities. Upload a cost file from WAM, bucket line items into included / excluded / donated property, enter revenue justification assumptions, and get a fully audited calculation with PDF report and customer letter — all in one workflow.",
+    status: "V1 Prototype",
+    statusColor: "amber",
+    links: [],
+    highlights: ["Electric CIAC + tax gross-up", "Donated property treatment", "PDF + DOCX output", "Full audit trail"],
+  },
+  {
+    tag: "TOOLING",
     title: "Agent Orchestration Layer",
     desc: "CLAUDE.md and agent routing infrastructure that routes AI coding assistants to the right domain, SDLC phase, and skills based on the current task and role.",
     status: "In Progress",
