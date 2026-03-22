@@ -38,8 +38,8 @@ function OODALoop() {
 
   return (
     <svg width="280" height="280" className="opacity-80">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,212,112,0.15)" strokeWidth="1" strokeDasharray="4 4" />
-      <circle r="4" fill="#FFD470" opacity="0.8">
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(160,180,186,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+      <circle r="4" fill="#A0B4BA" opacity="0.8">
         <animateMotion dur="6s" repeatCount="indefinite"
           path={`M ${cx} ${cy - r} a ${r} ${r} 0 1 1 0 ${2 * r} a ${r} ${r} 0 1 1 0 ${-(2 * r)}`} />
       </circle>
@@ -49,22 +49,22 @@ function OODALoop() {
         const y = cy + r * Math.sin(rad);
         return (
           <g key={node.label}>
-            <circle cx={x} cy={y} r="6" fill="#FFD470" opacity="0.2" />
-            <circle cx={x} cy={y} r="3" fill="#FFD470" />
+            <circle cx={x} cy={y} r="6" fill="#A0B4BA" opacity="0.2" />
+            <circle cx={x} cy={y} r="3" fill="#A0B4BA" />
             <text
               x={x}
               y={y + (node.angle === -90 ? -14 : node.angle === 90 ? 18 : 0)}
               dx={node.angle === 0 ? 14 : node.angle === 180 ? -14 : 0}
               textAnchor={node.angle === 0 ? "start" : node.angle === 180 ? "end" : "middle"}
-              fill="#FFD470" fontSize="9" fontFamily="monospace" letterSpacing="1"
+              fill="#A0B4BA" fontSize="9" fontFamily="monospace" letterSpacing="1"
             >
               {node.label}
             </text>
           </g>
         );
       })}
-      <circle cx={cx} cy={cy} r="20" fill="none" stroke="rgba(255,212,112,0.1)" strokeWidth="1" />
-      <text x={cx} y={cy + 4} textAnchor="middle" fill="rgba(255,212,112,0.5)" fontSize="7" fontFamily="monospace" letterSpacing="0.5">
+      <circle cx={cx} cy={cy} r="20" fill="none" stroke="rgba(160,180,186,0.1)" strokeWidth="1" />
+      <text x={cx} y={cy + 4} textAnchor="middle" fill="rgba(160,180,186,0.5)" fontSize="7" fontFamily="monospace" letterSpacing="0.5">
         LOOP
       </text>
     </svg>
