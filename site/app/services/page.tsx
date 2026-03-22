@@ -56,7 +56,7 @@ export default function Services() {
     <main className="min-h-screen px-6 py-16">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">
             SERVICES
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -78,7 +78,7 @@ export default function Services() {
                 <ul className="space-y-2">
                   {o.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-neutral-400">
-                      <span className="text-emerald-400 flex-shrink-0 mt-0.5">·</span>
+                      <span className="text-accent flex-shrink-0 mt-0.5">·</span>
                       {item}
                     </li>
                   ))}
@@ -91,7 +91,7 @@ export default function Services() {
         {/* Contact form */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <FadeIn>
-            <p className="font-mono text-emerald-400 text-xs tracking-widest mb-4">
+            <p className="font-mono text-accent text-xs tracking-widest mb-4">
               GET IN TOUCH
             </p>
             <h2 className="text-3xl font-bold mb-4">Request a demo</h2>
@@ -102,15 +102,15 @@ export default function Services() {
             </p>
             <div className="space-y-4 text-sm text-neutral-400">
               <div className="flex items-center gap-3">
-                <span className="text-emerald-400 font-mono">01</span>
+                <span className="text-accent font-mono">01</span>
                 <span>We review your submission and respond within 2 business days</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-emerald-400 font-mono">02</span>
+                <span className="text-accent font-mono">02</span>
                 <span>30-minute call to understand your use case</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-emerald-400 font-mono">03</span>
+                <span className="text-accent font-mono">03</span>
                 <span>Live demo tailored to your industry and engagement type</span>
               </div>
             </div>
@@ -118,8 +118,8 @@ export default function Services() {
 
           <FadeIn delay={100}>
             {submitted ? (
-              <div className="p-10 rounded-xl border border-emerald-400/20 bg-emerald-400/5 text-center">
-                <p className="text-emerald-400 font-semibold text-xl mb-2">
+              <div className="p-10 rounded-xl border border-accent/20 bg-accent/5 text-center">
+                <p className="text-accent font-semibold text-xl mb-2">
                   Request received.
                 </p>
                 <p className="text-neutral-400">We&apos;ll be in touch shortly.</p>
@@ -136,7 +136,7 @@ export default function Services() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-emerald-400/50 transition"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-accent/50 transition"
                       placeholder="Your name"
                     />
                   </div>
@@ -149,7 +149,7 @@ export default function Services() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-emerald-400/50 transition"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-accent/50 transition"
                       placeholder="you@company.com"
                     />
                   </div>
@@ -164,7 +164,7 @@ export default function Services() {
                       required
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-emerald-400/50 transition"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-accent/50 transition"
                       placeholder="Company"
                     />
                   </div>
@@ -176,7 +176,7 @@ export default function Services() {
                       type="text"
                       value={form.industry}
                       onChange={(e) => setForm({ ...form, industry: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-emerald-400/50 transition"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-accent/50 transition"
                       placeholder="e.g. T&D Utilities"
                     />
                   </div>
@@ -188,7 +188,7 @@ export default function Services() {
                   <select
                     value={form.interest}
                     onChange={(e) => setForm({ ...form, interest: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-sm focus:outline-none focus:border-emerald-400/50 transition text-neutral-300"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-sm focus:outline-none focus:border-accent/50 transition text-neutral-300"
                   >
                     <option value="" className="bg-[#080808]">Select one...</option>
                     <option value="demo" className="bg-[#080808]">Demo of the framework</option>
@@ -206,13 +206,13 @@ export default function Services() {
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-emerald-400/50 transition resize-none"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white text-sm placeholder-neutral-700 focus:outline-none focus:border-accent/50 transition resize-none"
                     placeholder="Tell us about your use case..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition cursor-pointer"
+                  className="w-full px-6 py-3 bg-accent text-black font-semibold rounded hover:bg-accent transition cursor-pointer"
                 >
                   Send Request
                 </button>

@@ -19,8 +19,8 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#080808]/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-mono text-sm tracking-widest text-white hover:text-emerald-400 transition">
-          FDS<span className="text-emerald-400 cursor-blink">_</span>
+        <Link href="/" className="font-mono text-sm tracking-widest text-white hover:text-accent transition">
+          FDS<span className="text-accent cursor-blink">_</span>
         </Link>
 
         {/* Desktop */}
@@ -32,7 +32,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 className={`px-4 py-2 text-sm rounded transition ${
-                  active ? "text-emerald-400" : "text-neutral-400 hover:text-white"
+                  active ? "text-accent" : "text-neutral-400 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -41,7 +41,7 @@ export default function Nav() {
           })}
           <Link
             href="/contact"
-            className="ml-3 px-4 py-2 bg-emerald-500 text-black text-sm font-semibold rounded hover:bg-emerald-400 transition"
+            className="ml-3 px-4 py-2 bg-accent text-black text-sm font-semibold rounded hover:bg-accent transition"
           >
             Contact
           </Link>
@@ -67,7 +67,7 @@ export default function Nav() {
               href={link.href}
               onClick={() => setOpen(false)}
               className={`block px-4 py-3 rounded text-sm transition ${
-                pathname === link.href ? "text-emerald-400 bg-emerald-400/5" : "text-neutral-400 hover:text-white"
+                pathname === link.href ? "text-accent bg-accent/5" : "text-neutral-400 hover:text-white"
               }`}
             >
               {link.label}
@@ -76,7 +76,7 @@ export default function Nav() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="block px-4 py-3 rounded text-sm bg-emerald-500 text-black font-semibold text-center mt-2 hover:bg-emerald-400 transition"
+            className="block px-4 py-3 rounded text-sm bg-accent text-black font-semibold text-center mt-2 hover:bg-accent transition"
           >
             Contact
           </Link>

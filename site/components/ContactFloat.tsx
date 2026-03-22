@@ -56,7 +56,7 @@ export default function ContactFloat() {
             {submitted ? (
               <div className="py-6 text-center">
                 <div className="text-2xl mb-2">✓</div>
-                <p className="text-emerald-400 font-medium text-sm mb-1">Sent.</p>
+                <p className="text-accent font-medium text-sm mb-1">Sent.</p>
                 <p className="text-xs text-neutral-500">We&apos;ll be in touch shortly.</p>
               </div>
             ) : (
@@ -68,7 +68,7 @@ export default function ContactFloat() {
                     placeholder="Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-400/50 transition"
+                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-accent/50 transition"
                   />
                 </div>
                 <div>
@@ -78,7 +78,7 @@ export default function ContactFloat() {
                     placeholder="Email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-400/50 transition"
+                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-accent/50 transition"
                   />
                 </div>
                 <div>
@@ -88,13 +88,13 @@ export default function ContactFloat() {
                     placeholder="What are you working on?"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-400/50 transition resize-none"
+                    className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-accent/50 transition resize-none"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-2.5 bg-emerald-500 text-black text-sm font-semibold rounded hover:bg-emerald-400 transition disabled:opacity-60 cursor-pointer"
+                  className="w-full py-2.5 bg-accent text-black text-sm font-semibold rounded hover:bg-accent transition disabled:opacity-60 cursor-pointer"
                 >
                   {loading ? "Sending…" : "Send"}
                 </button>
@@ -107,7 +107,7 @@ export default function ContactFloat() {
       {/* Floating button */}
       <button
         onClick={() => { setOpen(!open); if (submitted) { setSubmitted(false); setForm({ name: "", email: "", message: "" }); } }}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-black rounded-full shadow-lg shadow-emerald-500/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-accent hover:bg-accent text-black rounded-full shadow-lg shadow-accent/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
         aria-label="Contact"
       >
         {open ? (

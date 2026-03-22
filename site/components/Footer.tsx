@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="py-10 px-6 border-t border-white/5 mt-auto">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
         <p className="font-mono">
-          FDS<span className="text-emerald-400">_</span> &copy; 2026
+          FDS<span className="text-accent">_</span> &copy; 2026
         </p>
         <div className="flex gap-6">
           <a

@@ -139,7 +139,7 @@ function FileTree({ nodes, depth = 0 }: { nodes: FileNode[]; depth?: number }) {
               <span className="text-neutral-600 flex-shrink-0 mt-0.5">
                 {isDir ? (isOpen ? "▾" : "▸") : "·"}
               </span>
-              <span className={isDir ? "text-emerald-400" : "text-neutral-300"}>
+              <span className={isDir ? "text-accent" : "text-neutral-300"}>
                 {node.name}
               </span>
               {node.desc && (
@@ -176,7 +176,7 @@ export default function StarterKit() {
     <main className="min-h-screen px-6 py-16">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">
             STARTER KIT
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -190,7 +190,7 @@ export default function StarterKit() {
               href="https://github.com/TxNollid/forward-deployed-systems"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-emerald-500 text-black font-semibold text-sm rounded hover:bg-emerald-400 transition"
+              className="px-5 py-2.5 bg-accent text-black font-semibold text-sm rounded hover:bg-accent transition"
             >
               Clone on GitHub →
             </a>
@@ -205,7 +205,7 @@ export default function StarterKit() {
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/40" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/40" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/40" />
+                  <div className="w-3 h-3 rounded-full bg-accent/40" />
                 </div>
                 <span className="font-mono text-xs text-neutral-500 ml-2">
                   forward-deployed-systems/
@@ -226,7 +226,7 @@ export default function StarterKit() {
               <div className="p-5 space-y-3 max-h-[480px] overflow-y-auto">
                 {phases.map((p) => (
                   <div key={p.num} className="flex items-start gap-3">
-                    <span className="font-mono text-xs text-emerald-400 flex-shrink-0 mt-0.5 w-6">
+                    <span className="font-mono text-xs text-accent flex-shrink-0 mt-0.5 w-6">
                       {p.num}
                     </span>
                     <div>
@@ -245,10 +245,10 @@ export default function StarterKit() {
         {/* Quick start */}
         <FadeIn>
           <div className="rounded-xl border border-white/10 bg-white/[0.02] p-8 mb-8">
-            <p className="font-mono text-emerald-400 text-xs tracking-widest mb-4">QUICK START</p>
+            <p className="font-mono text-accent text-xs tracking-widest mb-4">QUICK START</p>
             <div className="font-mono text-sm space-y-2">
               <p><span className="text-neutral-600"># 1. Clone</span></p>
-              <p className="text-emerald-400">git clone https://github.com/TxNollid/forward-deployed-systems</p>
+              <p className="text-accent">git clone https://github.com/TxNollid/forward-deployed-systems</p>
               <p className="mt-4"><span className="text-neutral-600"># 2. Load your domain</span></p>
               <p className="text-neutral-300">cat domains/td-utilities/overview.md</p>
               <p className="mt-4"><span className="text-neutral-600"># 3. Start the SDLC</span></p>
@@ -271,7 +271,7 @@ export default function StarterKit() {
               href="https://github.com/TxNollid/forward-deployed-systems/tree/main/domains/_template"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 border border-white/15 text-sm rounded hover:border-emerald-400/40 hover:text-emerald-400 transition flex-shrink-0"
+              className="px-5 py-2.5 border border-white/15 text-sm rounded hover:border-accent/40 hover:text-accent transition flex-shrink-0"
             >
               View Template →
             </a>

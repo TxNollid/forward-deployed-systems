@@ -57,7 +57,7 @@ export default function Musings() {
     <main className="min-h-screen px-6 py-16">
       <div className="max-w-4xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">
             MUSINGS
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -96,7 +96,7 @@ export default function Musings() {
                       </span>
                       <span className="font-mono text-xs text-neutral-600">{post.date}</span>
                     </div>
-                    <h2 className="text-lg font-semibold mb-2 group-hover:text-emerald-400 transition">
+                    <h2 className="text-lg font-semibold mb-2 group-hover:text-accent transition">
                       {post.title}
                     </h2>
                     <p className="text-neutral-400 text-sm leading-relaxed max-w-xl">
@@ -109,7 +109,7 @@ export default function Musings() {
                         Draft
                       </span>
                     ) : (
-                      <span className="text-emerald-400 text-lg">→</span>
+                      <span className="text-accent text-lg">→</span>
                     )}
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function Musings() {
                 href="https://github.com/TxNollid"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:text-emerald-300 transition"
+                className="text-accent hover:text-accent transition"
               >
                 @TxNollid on GitHub
               </a>{" "}

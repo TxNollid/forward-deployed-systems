@@ -59,7 +59,7 @@ const solutions = [
 ];
 
 const statusConfig: Record<string, { dot: string; text: string }> = {
-  emerald: { dot: "bg-emerald-400", text: "text-emerald-400" },
+  emerald: { dot: "bg-accent", text: "text-accent" },
   amber: { dot: "bg-amber-400", text: "text-amber-400" },
   neutral: { dot: "bg-neutral-500", text: "text-neutral-500" },
 };
@@ -69,7 +69,7 @@ export default function Solutions() {
     <main className="min-h-screen px-6 py-16">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">
             SOLUTIONS
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -107,7 +107,7 @@ export default function Solutions() {
                             href={l.href}
                             target={l.href.startsWith("http") ? "_blank" : undefined}
                             rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="px-4 py-2 text-sm border border-white/15 rounded hover:border-emerald-400/40 hover:text-emerald-400 transition"
+                            className="px-4 py-2 text-sm border border-white/15 rounded hover:border-accent/40 hover:text-accent transition"
                           >
                             {l.label} →
                           </a>
@@ -133,13 +133,13 @@ export default function Solutions() {
         </div>
 
         <FadeIn delay={400}>
-          <div className="mt-14 p-8 rounded-xl border border-emerald-400/15 bg-emerald-400/5 text-center">
+          <div className="mt-14 p-8 rounded-xl border border-accent/15 bg-accent/5 text-center">
             <p className="text-neutral-300 mb-4">
               Have a use case we haven&apos;t built for yet?
             </p>
             <Link
               href="/services"
-              className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition inline-block"
+              className="px-6 py-3 bg-accent text-black font-semibold rounded hover:bg-accent transition inline-block"
             >
               Get in Touch
             </Link>

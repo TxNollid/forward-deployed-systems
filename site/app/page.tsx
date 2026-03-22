@@ -20,7 +20,7 @@ function DotGrid() {
 function ScanLine() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent scan-line" />
+      <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent scan-line" />
     </div>
   );
 }
@@ -38,10 +38,10 @@ function OODALoop() {
 
   return (
     <svg width="280" height="280" className="opacity-80">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(52,211,153,0.15)" strokeWidth="1" strokeDasharray="4 4" />
-      <circle r="4" fill="#34d399" opacity="0.8">
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(160,180,186,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+      <circle r="4" fill="#A0B4BA" opacity="0.8">
         <animateMotion dur="6s" repeatCount="indefinite"
-          path={`M ${cx + r} ${cy} A ${r} ${r} 0 1 1 ${cx + r - 0.001} ${cy}`} />
+          path={`M ${cx} ${cy - r} a ${r} ${r} 0 1 1 0 ${2 * r} a ${r} ${r} 0 1 1 0 ${-(2 * r)}`} />
       </circle>
       {nodes.map((node) => {
         const rad = (node.angle * Math.PI) / 180;
@@ -49,22 +49,22 @@ function OODALoop() {
         const y = cy + r * Math.sin(rad);
         return (
           <g key={node.label}>
-            <circle cx={x} cy={y} r="6" fill="#34d399" opacity="0.2" />
-            <circle cx={x} cy={y} r="3" fill="#34d399" />
+            <circle cx={x} cy={y} r="6" fill="#A0B4BA" opacity="0.2" />
+            <circle cx={x} cy={y} r="3" fill="#A0B4BA" />
             <text
               x={x}
               y={y + (node.angle === -90 ? -14 : node.angle === 90 ? 18 : 0)}
               dx={node.angle === 0 ? 14 : node.angle === 180 ? -14 : 0}
               textAnchor={node.angle === 0 ? "start" : node.angle === 180 ? "end" : "middle"}
-              fill="#34d399" fontSize="9" fontFamily="monospace" letterSpacing="1"
+              fill="#A0B4BA" fontSize="9" fontFamily="monospace" letterSpacing="1"
             >
               {node.label}
             </text>
           </g>
         );
       })}
-      <circle cx={cx} cy={cy} r="20" fill="none" stroke="rgba(52,211,153,0.1)" strokeWidth="1" />
-      <text x={cx} y={cy + 4} textAnchor="middle" fill="rgba(52,211,153,0.5)" fontSize="7" fontFamily="monospace" letterSpacing="0.5">
+      <circle cx={cx} cy={cy} r="20" fill="none" stroke="rgba(160,180,186,0.1)" strokeWidth="1" />
+      <text x={cx} y={cy + 4} textAnchor="middle" fill="rgba(160,180,186,0.5)" fontSize="7" fontFamily="monospace" letterSpacing="0.5">
         LOOP
       </text>
     </svg>
@@ -93,9 +93,9 @@ function Typewriter() {
   }, [displayed, deleting, idx]);
 
   return (
-    <span className="text-emerald-400">
+    <span className="text-accent">
       {displayed}
-      <span className="cursor-blink text-emerald-400">|</span>
+      <span className="cursor-blink text-accent">|</span>
     </span>
   );
 }
@@ -105,11 +105,11 @@ function Hero() {
     <section className="relative min-h-[90vh] flex items-center px-6 overflow-hidden">
       <DotGrid />
       <ScanLine />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <div>
           <FadeIn delay={0}>
-            <p className="font-mono text-emerald-400 text-xs tracking-widest mb-5">OPEN SOURCE</p>
+            <p className="font-mono text-accent text-xs tracking-widest mb-5">OPEN SOURCE</p>
           </FadeIn>
           <FadeIn delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
@@ -126,10 +126,10 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={300}>
             <div className="flex flex-wrap gap-4">
-              <Link href="/services" className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition">
+              <Link href="/services" className="px-6 py-3 bg-accent text-black font-semibold rounded hover:bg-accent transition">
                 Request a Demo
               </Link>
-              <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 hover:text-emerald-400 transition">
+              <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-accent/40 hover:text-accent transition">
                 Explore the Kit
               </Link>
             </div>
@@ -171,7 +171,7 @@ function Thesis() {
     <section className="py-24 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">THE THESIS</p>
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">THE THESIS</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 max-w-2xl">
             Build systems, not software.
           </h2>
@@ -185,7 +185,7 @@ function Thesis() {
           {pillars.map((p, i) => (
             <FadeIn key={p.title} delay={i * 80}>
               <div className="glow-card p-6 rounded-lg border border-white/10 bg-white/[0.02] h-full">
-                <div className="text-emerald-400 text-2xl mb-4 font-mono">{p.icon}</div>
+                <div className="text-accent text-2xl mb-4 font-mono">{p.icon}</div>
                 <h3 className="font-semibold mb-2">{p.title}</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">{p.body}</p>
               </div>
@@ -211,7 +211,7 @@ function IOChain() {
     <section className="py-24 px-6 border-t border-white/5 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-emerald-400 text-xs tracking-widest mb-3">HOW IT WORKS</p>
+          <p className="font-mono text-accent text-xs tracking-widest mb-3">HOW IT WORKS</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-14">
             Input &rarr; Action &rarr; Output,
             <br />
@@ -219,12 +219,12 @@ function IOChain() {
           </h2>
         </FadeIn>
         <div className="relative">
-          <div className="absolute top-6 left-6 right-6 h-px bg-gradient-to-r from-emerald-400/20 via-emerald-400/40 to-emerald-400/20 hidden sm:block" />
+          <div className="absolute top-6 left-6 right-6 h-px bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20 hidden sm:block" />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {steps.map((step, i) => (
               <FadeIn key={step.label} delay={i * 80}>
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-full border border-emerald-400/30 bg-emerald-400/10 flex items-center justify-center font-mono text-emerald-400 text-sm mb-3 relative z-10">
+                  <div className="w-12 h-12 rounded-full border border-accent/30 bg-accent/10 flex items-center justify-center font-mono text-accent text-sm mb-3 relative z-10">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <p className="font-medium text-sm mb-1">{step.label}</p>
@@ -236,7 +236,7 @@ function IOChain() {
         </div>
         <FadeIn delay={500}>
           <div className="mt-12 text-center">
-            <Link href="/starter-kit" className="text-sm text-emerald-400 hover:text-emerald-300 transition font-mono">
+            <Link href="/starter-kit" className="text-sm text-accent hover:text-accent transition font-mono">
               Explore the full SDLC →
             </Link>
           </div>
@@ -251,10 +251,10 @@ function CTA() {
     <section className="py-24 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <div className="relative rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-12 text-center overflow-hidden">
+          <div className="relative rounded-2xl border border-accent/20 bg-accent/5 p-12 text-center overflow-hidden">
             <div className="absolute inset-0 dot-grid opacity-20 pointer-events-none" />
             <div className="relative z-10">
-              <p className="font-mono text-emerald-400 text-xs tracking-widest mb-4">OPEN SOURCE + SERVICES</p>
+              <p className="font-mono text-accent text-xs tracking-widest mb-4">OPEN SOURCE + SERVICES</p>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Use and contribute to the FDS tool kit.
                 <br />
@@ -264,13 +264,13 @@ function CTA() {
                 Get in touch! We always want to see how teams are reorganizing with AI.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Link href="/contact" className="px-6 py-3 bg-emerald-500 text-black font-semibold rounded hover:bg-emerald-400 transition">
+                <Link href="/contact" className="px-6 py-3 bg-accent text-black font-semibold rounded hover:bg-accent transition">
                   Get in Touch
                 </Link>
-                <Link href="/solutions" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 transition">
+                <Link href="/solutions" className="px-6 py-3 border border-white/15 text-white rounded hover:border-accent/40 transition">
                   See What We Build
                 </Link>
-                <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-emerald-400/40 transition">
+                <Link href="/starter-kit" className="px-6 py-3 border border-white/15 text-white rounded hover:border-accent/40 transition">
                   View the Starter Kit
                 </Link>
               </div>
